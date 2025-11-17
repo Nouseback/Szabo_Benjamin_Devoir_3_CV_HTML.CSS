@@ -1,0 +1,362 @@
+/* ========== GLOBAL RESET & FONTS ========== */
+
+@font-face {
+  font-family: "Raleway";
+  src: url("images/fonts/raleway-regular.ttf") format("ttf");
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("images/fonts/raleway-bold.ttf") format("ttf");
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("images/fonts/raleway-italic.ttf") format("ttf");
+  font-weight: 400; font-style: italic;
+}
+
+/* --- Lato (pour les titres, importée via Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@0,400;0,700;1,400&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ====== Police globale ====== */
+
+/* Raleway pour le corp du texte */
+body {
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 1rem;             /* s’adapte à la taille du navigateur */
+  line-height: 1.6;
+  background-color: #f5f5f5; /* rgb(245, 245, 245) */
+  color: #333333; /* rgb(51, 51, 51) */
+}
+
+/* Lato pour les titres */
+
+h1{
+  font-family: 'Lato', Arial,sans-serif;
+  font-weight: 700;
+  color:#ffffff; /* rgb(255, 255, 255) */
+}
+
+h1 { font-size: 2rem; }     /* ~32px, mais dépend de la taille de base du navigateur */
+h2 { font-size: 1.5rem; }
+p, li { font-size: 1rem; }  /* taille standard */
+
+h2{
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 700;
+  color: #17abb3; /* rgb(23, 171, 179) */
+}
+
+h4{
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 700;
+  color: #333333; /* rgb(51, 51, 51) */
+}
+/* Optionnel : italique pour certaines citations ou sous-titres */
+em, i {
+  font-family: 'Raleway', Arial, sans-serif;
+  font-style: italic;
+}
+
+/* ========== WRAPPER ========== */
+.cv-wrapper {
+  width: 1160px;
+  margin: 0 auto;
+  background: #ffffff; /* rgb(255, 255, 255) */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+/* ========== HEADER ========== */
+.cv-header {
+  background-color: #17abb3; /* rgb(23, 171, 179) */
+  color: #ffffff; /* rgb(255, 255, 255) */
+  display: flex;
+  align-items: center;         /* alignement verticale */
+  justify-content: flex-start;
+  gap: 250px; /* 350px est un peu large sur certains écrans */  /* espace entre la photo et les infos */
+  padding: 40px 60px;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #ffffff; /* rgb(255, 255, 255) */
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.profile-link:hover .profile-photo {
+  transform: scale(1.05);
+  cursor: zoom-in;
+}
+
+.fullname {
+  font-family: "Lato", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.jobtitle {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  margin: 5px 0 15px;
+}
+
+.contact-icon {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-icon-column {
+  display: flex;
+  flex-direction: column;        /* empile les liens verticalement */
+  gap: 8px;
+}
+
+.contact-icon-column a,
+.contact-icon-column p {
+  color: #ffffff; /* rgb(255, 255, 255) */
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-icon a:hover {
+  text-decoration: underline;
+}
+
+.icon{
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  filter: brightness(0) invert(1); /* rend l'icône blanche */
+}
+
+/* ========== MAIN LAYOUT ========== */
+.cv-main {
+  display: flex;
+  background-color: #ffffff; /* rgb(255, 255, 255) */
+}
+
+/* SIDEBAR */
+.cv-sidebar {
+  width: 300px;
+  background-color: #e3e3e3; /* rgb(227, 227, 227) */
+  padding: 30px;
+}
+
+.card + .card { margin-top: 25px; }
+.card h2 {
+  font-family: "Lato", sans-serif;
+  color: #17abb3; /* rgb(23, 171, 179) */
+  font-size: 20px;  
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
+
+.skills {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+
+.skills li {
+  display: flex;                      /* Sépare texte + étoiles */
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;                   /* LE TEXTE DES COMPÉTENCES EN GRAS */
+  margin-bottom: 10px;
+  color: #333333; /* rgb(51, 51, 51) */
+}
+
+.stars {
+  font-size: 0.9rem;
+  color: #e3e3e3; /* rgb(227, 227, 227) */ /* étoiles grises (vides) */
+  border-color: #17abb3; /* rgb(23, 171, 179) */
+  letter-spacing: 2px;
+  position: relative;
+  margin-left: 10px;
+  -webkit-text-stroke:1px #17abb3; /* rgb(23, 171, 179) */
+}
+
+/* Étoiles pleines (turquoises) */
+.stars::before {
+  content: "★★★★★";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #17abb3; /* rgb(23, 171, 179) */
+  overflow: hidden;
+  width: 0%;
+}
+
+/* Nombre d’étoiles remplies selon la note */
+.stars[data-rating="1"]::before { width: 20%; }
+.stars[data-rating="2"]::before { width: 40%; }
+.stars[data-rating="3"]::before { width: 60%; }
+.stars[data-rating="4"]::before { width: 80%; }
+.stars[data-rating="5"]::before { width: 100%; }
+
+.language {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.language li {
+  display: flex;                 /* permet de séparer texte à gauche / span à droite */
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;              /* MET LES <li> EN GRAS */
+  margin-bottom: 8px;
+  color: #333333; /* rgb(51, 51, 51) */
+}
+
+.language .lang {
+  font-weight: 400;              /* le texte du span reste normal */
+  color: #333333; /* rgb(51, 51, 51) */
+  margin-left: 10px;
+}
+
+.cv-sidebar ul li {
+  list-style: none;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.dots li {
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+.dots li::before{
+    content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #17abb3; /* rgb(23, 171, 179) */
+  position: absolute;
+  left: -15px;                 /* position du carré */
+  top: 6px;
+}
+
+/* CONTENT */
+.cv-content {
+  flex: 1;
+  padding: 40px;
+  background-color: #ffffff; /* rgb(255, 255, 255) */
+}
+
+.profile-text {
+  text-indent: 2em;
+  text-align: justify;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* TIMELINE */
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px 12px;
+  margin-bottom: 8px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #17abb3; /* rgb(23, 171, 179) */
+  transition: width 0.2s ease;
+}
+
+.timeline-item:hover::before {
+  width: 6px;
+}
+
+.timeline-item:hover {
+  background-color: #f5f5f5; /* rgb(245, 245, 245) */
+}
+
+.timeline-right {
+  color: #17abb3; /* rgb(23, 171, 179) */
+  font-weight: 700;
+}
+
+.timeline-left p{
+  font-family: "raleway" , Arial, sans-serif;
+  font-style: italic;
+}
+.muted {
+  color: #333333; /* rgb(51, 51, 51) */
+  font-size: 13px;
+}
+
+/* ========== FOOTER ========== */
+.cv-footer {
+  max-width: 1160px;
+  margin-left: 162px;
+  background-color: #17abb3; /* rgb(23, 171, 179) */
+  color: #ffffff; /* rgb(255, 255, 255) */
+  display: flex;
+  justify-content: center;     /* centre horizontalement */
+  align-items: center;         /* centre verticalement */
+  padding: 25px 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 25px;                   /* espace entre les icônes */
+  margin-bottom: 12px;         /* espace avant la date */
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  filter: brightness(0) invert(1); /* rend l'icône blanche */
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.update-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff; /* rgb(255, 255, 255) */
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .cv-wrapper { width: 95%; }
+  .cv-main { flex-direction: column; }
+  .cv-sidebar { width: 100%; }
+}
